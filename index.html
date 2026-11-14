@@ -47,13 +47,28 @@
   .tile .d{color:var(--muted);font-size:13px}
   .links{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
   .links a{
-    flex:1;min-width:120px;text-align:center;text-decoration:none;
-    padding:12px 16px;border-radius:12px;font-size:14px;border:1px solid var(--border);
+    flex:1;min-width:100px;text-align:center;text-decoration:none;cursor:pointer;
+    padding:14px 16px;border-radius:12px;font-size:15px;border:1px solid var(--border);
     color:var(--text);background:var(--card);transition:.2s;
   }
   .links a.hl{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;font-weight:600}
   .links a:hover{transform:translateY(-2px)}
   footer{text-align:center;color:#55555f;font-size:12px;margin-top:48px}
+  /* 二维码弹窗 */
+  .modal{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:100;
+    align-items:center;justify-content:center;padding:24px;
+  }
+  .modal-content{
+    background:var(--card);border:1px solid var(--border);border-radius:20px;
+    padding:24px;max-width:340px;width:100%;text-align:center;
+  }
+  .modal-content img{width:100%;border-radius:12px;background:#fff;display:block}
+  .modal-content p{margin:16px 0;color:var(--text);font-size:15px}
+  .modal-content button{
+    padding:11px 34px;border:none;border-radius:10px;cursor:pointer;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:15px;
+  }
 </style>
 </head>
 <body>
@@ -85,7 +100,7 @@
       </div>
       <div class="tile">
         <div class="t">🔗 社交主页</div>
-        <div class="d">微博、抖音、B站、小红书等入口。</div>
+        <div class="d">抖音、小红书等平台入口，点下方按钮扫码关注。</div>
       </div>
       <div class="tile">
         <div class="t">📮 联系我</div>
@@ -96,15 +111,39 @@
     <div class="card">
       <h2>联系我</h2>
       <div class="links">
-        <a href="#" class="hl">微信</a>
-        <a href="#">抖音</a>
-        <a href="#">小红书</a>
-        <a href="#">B站</a>
+        <a class="hl" onclick="showQR('wechat')">微信</a>
+        <a onclick="showQR('douyin')">抖音</a>
+        <a onclick="showQR('xhs')">小红书</a>
       </div>
-      <p style="margin-top:14px">把上面链接的 # 换成你的主页地址即可。</p>
+      <p style="margin-top:14px">点击按钮，扫码找到我。</p>
     </div>
 
     <footer>© 2026 杨古八 · 个人官方网站</footer>
   </div>
+
+  <!-- 二维码弹窗 -->
+  <div id="qrModal" class="modal" onclick="hideQR()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <img id="qrImg" src="" alt="二维码">
+      <p id="qrText"></p>
+      <button onclick="hideQR()">关闭</button>
+    </div>
+  </div>
+
+  <script>
+    var qrs = {
+      wechat: {img:'images/wechat.png', text:'微信扫码，添加我为朋友'},
+      douyin: {img:'images/douyin.png', text:'抖音扫码关注我 · 杨古八'},
+      xhs:    {img:'images/xhs.jpg',    text:'小红书扫码找到我'}
+    };
+    function showQR(key){
+      document.getElementById('qrImg').src = qrs[key].img;
+      document.getElementById('qrText').innerText = qrs[key].text;
+      document.getElementById('qrModal').style.display = 'flex';
+    }
+    function hideQR(){
+      document.getElementById('qrModal').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
