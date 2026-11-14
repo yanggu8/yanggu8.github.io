@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>杨古八 · 个人官方网站</title>
+<style>
+  :root{
+    --bg:#0d0d12; --card:#17171f; --border:#2a2a36;
+    --text:#f2f2f5; --muted:#9a9aa8; --accent:#ff5c1a; --accent2:#8b5cf6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.7; min-height:100vh;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:48px 20px 80px}
+  .hero{text-align:center;padding:30px 0 40px}
+  .logo{
+    width:92px;height:92px;border-radius:24px;margin:0 auto 20px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;
+    font-size:40px;font-weight:700;color:#fff;box-shadow:0 12px 40px rgba(255,92,26,.28);
+  }
+  h1{font-size:34px;letter-spacing:2px}
+  .tagline{color:var(--muted);margin-top:8px;font-size:15px}
+  .badges{margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .badge{
+    padding:6px 16px;border:1px solid var(--border);border-radius:999px;
+    font-size:13px;color:var(--muted);background:var(--card);
+  }
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:16px;
+    padding:24px;margin-top:20px;
+  }
+  .card h2{font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .card h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block}
+  .card p{color:var(--muted);font-size:14px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .tile{
+    background:var(--card);border:1px solid var(--border);border-radius:14px;
+    padding:20px;transition:.2s;
+  }
+  .tile:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .tile .t{font-weight:600;font-size:15px;margin-bottom:6px}
+  .tile .d{color:var(--muted);font-size:13px}
+  .links{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+  .links a{
+    flex:1;min-width:120px;text-align:center;text-decoration:none;
+    padding:12px 16px;border-radius:12px;font-size:14px;border:1px solid var(--border);
+    color:var(--text);background:var(--card);transition:.2s;
+  }
+  .links a.hl{background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;color:#fff;font-weight:600}
+  .links a:hover{transform:translateY(-2px)}
+  footer{text-align:center;color:#55555f;font-size:12px;margin-top:48px}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="logo">杨</div>
+      <h1>杨古八</h1>
+      <p class="tagline">欢迎来到我的个人官方网站</p>
+      <div class="badges">
+        <span class="badge">潮流</span>
+        <span class="badge">球鞋</span>
+        <span class="badge">分享</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>关于我</h2>
+      <p>你好，我是杨古八。这里是我的个人主页，用来记录我的爱好、分享和作品。后续会持续更新内容，欢迎关注。</p>
+    </div>
+
+    <div class="grid">
+      <div class="tile">
+        <div class="t">📦 作品 / 内容</div>
+        <div class="d">我的精选内容、货架或项目，会陆续放在这里。</div>
+      </div>
+      <div class="tile">
+        <div class="t">✍️ 动态 / 笔记</div>
+        <div class="d">日常分享、心得和最新动态。</div>
+      </div>
+      <div class="tile">
+        <div class="t">🔗 社交主页</div>
+        <div class="d">微博、抖音、B站、小红书等入口。</div>
+      </div>
+      <div class="tile">
+        <div class="t">📮 联系我</div>
+        <div class="d">合作、交流都可以通过下方方式找到我。</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>联系我</h2>
+      <div class="links">
+        <a href="#" class="hl">微信</a>
+        <a href="#">抖音</a>
+        <a href="#">小红书</a>
+        <a href="#">B站</a>
+      </div>
+      <p style="margin-top:14px">把上面链接的 # 换成你的主页地址即可。</p>
+    </div>
+
+    <footer>© 2026 杨古八 · 个人官方网站</footer>
+  </div>
+</body>
+</html>
